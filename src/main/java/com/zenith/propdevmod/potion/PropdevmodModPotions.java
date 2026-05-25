@@ -32,7 +32,7 @@ public class PropdevmodModPotions implements ModInitializer {
                     // Input potion.
                     Potions.WATER,
                     // Ingredient
-                    ModItems.MANGO,
+                    ModItems.PROP_SLIME_BALL,
                     // Output potion.
                     PROP_POTION
             );
