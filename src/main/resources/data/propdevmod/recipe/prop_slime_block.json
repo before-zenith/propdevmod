@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": "propdevmod:prop_slime_ball"
+  },
+  "result": {
+    "id": "propdevmod:prop_slime_block"
+  }
+}

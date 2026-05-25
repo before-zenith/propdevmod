@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "propdevmod",
+	"version": "0.1.0",
+	"name": "Propdev's Mod",
+	"description": "Have you ever dreamed to see a Propdev in your Minecraft world? Well now, that dream is real now!",
+	"authors": [
+		"Before_ZenitH"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/propdevmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.zenith.propdevmod.Propdevmod",
+			"com.zenith.propdevmod.item.PropdevmodModItems",
+			"com.zenith.propdevmod.effect.PropdevmodModEffects",
+			"com.zenith.propdevmod.potion.PropdevmodModPotions",
+			"com.zenith.propdevmod.entity.PropdevmodModEntity",
+			"com.zenith.propdevmod.block.PropdevmodModBlocks"
+		],
+		"client": [
+			"com.zenith.propdevmod.client.PropdevmodClient"
+		]
+	},
+	"mixins": [
+		"propdevmod.mixins.json",
+		{
+			"config": "propdevmod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

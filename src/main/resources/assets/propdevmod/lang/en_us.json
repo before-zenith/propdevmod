@@ -1,0 +1,12 @@
+{
+  "item.propdevmod.mango": "Mango",
+  "effect.propdevmod.prop_effect": "Prop Effect",
+  "item.minecraft.potion.effect.prop_potion": "Potion of Propping",
+  "item.minecraft.splash_potion.effect.prop_potion": "Splash Potion of Propping",
+  "item.minecraft.lingering_potion.effect.prop_potion": "Lingering Potion of Propping",
+  "item.minecraft.tipped_arrow.effect.prop_potion": "Arrow of Propping",
+  "item.propdevmod.prop_slime_spawn_egg": "Prop Slime Spawn Egg",
+  "entity.propdevmod.prop_slime": "Prop Slime",
+  "item.propdevmod.prop_slime_ball": "Prop Slime Ball",
+  "block.propdevmod.prop_slime_block": "Prop Slime Block"
+}
