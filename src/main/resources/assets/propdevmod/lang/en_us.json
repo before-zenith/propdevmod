@@ -8,5 +8,6 @@
   "item.propdevmod.prop_slime_spawn_egg": "Prop Slime Spawn Egg",
   "entity.propdevmod.prop_slime": "Prop Slime",
   "item.propdevmod.prop_slime_ball": "Prop Slime Ball",
-  "block.propdevmod.prop_slime_block": "Prop Slime Block"
+  "block.propdevmod.prop_slime_block": "Prop Slime Block",
+  "block.propdevmod.prop_sticky_piston": "Prop Sticky Piston"
 }

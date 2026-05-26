@@ -1,6 +1,8 @@
 package com.zenith.propdevmod.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,8 +20,14 @@ import net.minecraft.world.level.ServerLevelAccessor;
 
 public class PropSlimeEntity extends Slime {
 
+    private int attackCooldown = 0;
+
+    private boolean spawnedChildren = false;
+
     public PropSlimeEntity(EntityType<? extends Slime> entityType, Level level) {
         super(entityType, level);
+
+        this.setHealth(this.getMaxHealth());
     }
 
     @Override
@@ -83,7 +91,22 @@ public class PropSlimeEntity extends Slime {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+
+        if (attackCooldown > 0) {
+            attackCooldown--;
+        }
+    }
+
+    @Override
     protected void dealDamage(LivingEntity target) {
+        if (attackCooldown > 0) {
+            return;
+        }
+
+        attackCooldown = 30;
+
         if (this.level() instanceof ServerLevel level && this.isAlive() && this.hasLineOfSight(target)) {
             if (this.distanceToSqr(target) < (double)(this.getBbWidth() * this.getBbWidth() * 4.0F) + target.getBbWidth()) {
                 DamageSource damageSource = this.damageSources().mobAttack(this);
@@ -93,5 +116,27 @@ public class PropSlimeEntity extends Slime {
                 }
             }
         }
+    }
+
+    @Override
+    protected ParticleOptions getParticleType() {
+        return ParticleTypes.SOUL_FIRE_FLAME;
+    }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        if (this.getSize() > 1 && reason == RemovalReason.KILLED) {
+            this.spawnedChildren = true;
+        }
+        super.remove(reason);
+    }
+
+    @Override
+    protected void dropAllDeathLoot(ServerLevel level, DamageSource damageSource) {
+        if (this.spawnedChildren || this.getSize() > 1) {
+            return;
+        }
+
+        super.dropAllDeathLoot(level, damageSource);
     }
 }

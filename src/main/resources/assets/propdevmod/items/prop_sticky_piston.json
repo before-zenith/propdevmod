@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "propdevmod:block/prop_sticky_piston_inventory"
+  }
+}

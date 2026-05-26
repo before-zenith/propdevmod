@@ -11,13 +11,14 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 
 public class ModEntityTypes {
     public static final EntityType<PropSlimeEntity> PROP_SLIME = register(
             "prop_slime",
             EntityType.Builder.<PropSlimeEntity>of(PropSlimeEntity::new, MobCategory.MONSTER)
-                    .sized(0.52f, 0.52f) // Matching vanilla slime bounding box scaling
+                    .sized(0.52f, 0.52f)
     );
 
     public static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
@@ -30,6 +31,10 @@ public class ModEntityTypes {
     }
 
     public static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(PROP_SLIME, Monster.createMonsterAttributes());
+        FabricDefaultAttributeRegistry.register(
+                PROP_SLIME,
+                Monster.createMonsterAttributes()
+                        .add(Attributes.MAX_HEALTH, 8.0D)
+        );
     }
 }
